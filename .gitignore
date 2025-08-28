@@ -9,6 +9,8 @@
 
 # === Maven ===
 target/
+/target/
+
 
 # === Gradle ===
 .gradle/
