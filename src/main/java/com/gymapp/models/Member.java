@@ -68,9 +68,9 @@ public class Member {
     public void setJoinDate(Date joinDate) {
         this.joinDate = joinDate;
     }
-
-    public void showInfo(){
-        System.out.println("\nName: " + name + "\nLastname: " + lastName +
+    @Override
+    public String toString(){
+        return("\nName: " + name + "\nLastname: " + lastName +
                 "\nPhone: " + phone + "\nEmail: " + email + "\nJoinDate: " + joinDate);
     }
 }

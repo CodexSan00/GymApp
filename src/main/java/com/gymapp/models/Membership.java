@@ -3,11 +3,10 @@ package com.gymapp.models;
 import java.util.Date;
 
 public class Membership {
-    private int id; // temporary, when the database is created it must be removed
+    private int id;
     private int memberId;
     private String planType;
     private Date startDate;
-    private Date endDate;
     private Status status;
 
     public enum Status {ACTIVE, EXPIRED, CANCELLED};
@@ -52,14 +51,6 @@ public class Membership {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
     public Status getStatus() {
         return status;
     }
@@ -74,7 +65,6 @@ public class Membership {
                 "id=" + id +
                 ", planType='" + planType + '\'' +
                 ", startDate=" + startDate +
-                ", endDate=" + endDate +
                 ", status=" + status +
                 '}';
     }
