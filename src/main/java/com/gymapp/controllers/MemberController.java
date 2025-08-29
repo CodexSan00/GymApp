@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.ArrayList;
 public class MemberController {
     private List<Member> members = new ArrayList<>(); //This will be removed in the future
-    private int nextId = 0; //just for simulate auto-increment
+    private int nextId = -1; //just for simulate auto-increment
 
     public void register(String name, String lastName, String phone, String email, Date joinDate){
         Member m = new Member(nextId++, name, lastName, phone, email, joinDate);

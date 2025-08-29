@@ -7,7 +7,7 @@ import com.gymapp.models.Membership;
 import com.gymapp.models.Member;
 
 public class MembershipController {
-    int nextId = 1;
+    int nextId = -1;
     private List<Membership> membershipArray = new ArrayList<>(); //Simulates DAO, this will be removed in the future
 
     public void assignMembership(Member member, String planType, Date startDate){
