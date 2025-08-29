@@ -9,37 +9,34 @@ import java.util.Date;
 
 public class FeeController {
     List<Fee> feeList = new ArrayList<>();
-    int feeCounter = -1; // simualtes auto-increment
+    int feeCounter = -1; // simulates auto-increment
 
     public Fee generateFee(int membershipId, double amount){
         Date startDate = new Date();
         Date dueDate = new Date();
         Fee fee = new Fee(feeCounter++, membershipId, amount, Fee.Status.PENDING, startDate, dueDate);
         feeList.add(fee);
-        System.out.println(fee);
         return fee;
     }
 
-    public List<Fee> getAllFees(){ //debugggggg
+    public List<Fee> getAllFees(){
         return new ArrayList<>(feeList);
     }
 
 
     public List<Fee> listFeesByMembership(int membershipId){
-        List<Fee> result = new ArrayList<>();
+        List<Fee> feeByMember = new ArrayList<>();
         for(Fee f : feeList){
                 if(f.getMembershipId() == membershipId){
-                    result.add(f);
+                    feeByMember.add(f);
                 }
         }
-        System.out.println(result);
-        return result;
+        return feeByMember;
     }
 
     public Fee getFeeById(int feeId){
         for(Fee f: feeList){
             if(f.getId() == feeId){
-                System.out.println(f);
                 return f;
             }
         }
@@ -49,7 +46,6 @@ public class FeeController {
         for(Fee f: feeList){
             if(f.getId() == feeId){
                 f.setAmount(amount);
-                System.out.println(f);
                 return f;
             }
         }
