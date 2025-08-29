@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class FeeController {
     List<Fee> feeList = new ArrayList<>();
-    int feeCounter = 0;
+    int feeCounter = -1; // simualtes auto-increment
 
     public Fee generateFee(int membershipId, double amount){
         Date startDate = new Date();
@@ -20,14 +20,8 @@ public class FeeController {
         return fee;
     }
 
-    public void getAllFees(){ //debugggggg
-        if(feeList.isEmpty()) {
-            System.out.println("List is empty");
-        }else{
-            for(Fee f: feeList){
-                System.out.println(f);
-            }
-        }
+    public List<Fee> getAllFees(){ //debugggggg
+        return new ArrayList<>(feeList);
     }
 
 
@@ -62,13 +56,14 @@ public class FeeController {
 
         return null;
     }
-    public void deleteFee(int feeId){
-        for(Fee f: feeList){
-            if(f.getId() == feeId){
-                feeList.remove(f);
-                System.out.println("Fee removed.");
+    public boolean deleteFee(int feeId){
+        for(int i = 0; i < feeList.size() ; i++){
+            if(feeList.get(i).getId() == feeId){
+                feeList.remove(i);
+                return true;
             }
         }
+        return false;
     }
     }
 
