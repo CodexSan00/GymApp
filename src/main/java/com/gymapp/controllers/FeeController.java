@@ -4,7 +4,7 @@ import com.gymapp.models.Fee;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Date;
+import java.time.LocalDate;
 
 
 public class FeeController {
@@ -12,8 +12,8 @@ public class FeeController {
     int feeCounter = -1; // simulates auto-increment
 
     public Fee generateFee(int membershipId, double amount){
-        Date startDate = new Date();
-        Date dueDate = new Date();
+        LocalDate startDate = LocalDate.now();
+        LocalDate dueDate = LocalDate.now();
         Fee fee = new Fee(feeCounter++, membershipId, amount, Fee.Status.PENDING, startDate, dueDate);
         feeList.add(fee);
         return fee;

@@ -1,6 +1,6 @@
 package com.gymapp.models;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Member {
     private int id;
@@ -8,11 +8,11 @@ public class Member {
     private String lastName;
     private String phone;
     private String email;
-    private Date joinDate;
+    private LocalDate joinDate;
 
     public Member(){}
 
-    public Member(int id, String name, String lastName, String phone, String email, Date joinDate){
+    public Member(int id, String name, String lastName, String phone, String email, LocalDate joinDate){
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -61,11 +61,11 @@ public class Member {
         this.email = email;
     }
 
-    public Date getJoinDate() {
+    public LocalDate getJoinDate() {
         return joinDate;
     }
 
-    public void setJoinDate(Date joinDate) {
+    public void setJoinDate(LocalDate joinDate) {
         this.joinDate = joinDate;
     }
     @Override

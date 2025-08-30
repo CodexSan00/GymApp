@@ -2,7 +2,7 @@ package com.gymapp.controllers;
 
 import com.gymapp.models.Payment;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -15,7 +15,7 @@ public class PaymentController {
     }
 
     public Payment generatePayment(int feeId, double amount, Payment.Method method) {
-        Date paymentDate = new Date();
+        LocalDate paymentDate = LocalDate.now();
         Payment p = new Payment(id++, feeId, amount, paymentDate, method);
         payments.add(p);
         return p;

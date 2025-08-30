@@ -1,6 +1,6 @@
 package com.gymapp.models;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 
 
@@ -8,7 +8,7 @@ public class Payment {
     private int id;
     private double amount;
     private int feeId;
-    private Date paymentDate;
+    private LocalDate paymentDate;
     private String reference;
     private Method paymentMethod;
     private Status status;
@@ -17,7 +17,7 @@ public class Payment {
     public enum Status { COMPLETED, PENDING, FAILED }
 
     public Payment(){}
-    public Payment(int id, int feeId, double amount, Date paymentDate, Method method){
+    public Payment(int id, int feeId, double amount, LocalDate paymentDate, Method method){
         this.id = id;
         this.feeId = feeId;
         this.amount = amount;
@@ -50,11 +50,11 @@ public class Payment {
         this.feeId = feeId;
     }
 
-    public Date getPaymentDate() {
+    public LocalDate getPaymentDate() {
         return paymentDate;
     }
 
-    public void setPaymentDate(Date paymentDate) {
+    public void setPaymentDate(LocalDate paymentDate) {
         this.paymentDate = paymentDate;
     }
 

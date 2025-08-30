@@ -1,18 +1,18 @@
 package com.gymapp.models;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Membership {
     private int id;
     private int memberId;
     private String planType;
-    private Date startDate;
+    private LocalDate startDate;
     private Status status;
 
     public enum Status {ACTIVE, EXPIRED, CANCELLED};
 
     public Membership(){}
-    public Membership(int id, int memberId, String planType, Date startDate){
+    public Membership(int id, int memberId, String planType, LocalDate startDate){
         this.id = id;
         this.memberId = memberId;
         this.planType = planType;
@@ -43,11 +43,11 @@ public class Membership {
         this.planType = planType;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 

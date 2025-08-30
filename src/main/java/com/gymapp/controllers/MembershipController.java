@@ -1,7 +1,7 @@
 package com.gymapp.controllers;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import com.gymapp.models.Membership;
 import com.gymapp.models.Member;
@@ -10,7 +10,7 @@ public class MembershipController {
     int nextId = -1;
     private List<Membership> membershipArray = new ArrayList<>(); //Simulates DAO, this will be removed in the future
 
-    public void assignMembership(Member member, String planType, Date startDate){
+    public void assignMembership(Member member, String planType, LocalDate startDate){
         Membership membership = new Membership(nextId++, member.getId(), planType, startDate);
         membership.setStatus(Membership.Status.ACTIVE);
         membershipArray.add(membership);

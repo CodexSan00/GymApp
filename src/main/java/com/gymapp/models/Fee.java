@@ -1,20 +1,20 @@
 package com.gymapp.models;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Fee {
     private int id;
     private double amount;
     private Status status;
     private int membershipId;
-    private Date dueDate;
-    private Date startDate;
+    private LocalDate dueDate;
+    private LocalDate startDate;
 
     public enum Status { PENDING, PAID, OVERDUE }
 
     public Fee(){}
 
-    public Fee (int id, int membershipId, double amount, Status status, Date startDate, Date dueDate){
+    public Fee (int id, int membershipId, double amount, Status status, LocalDate startDate, LocalDate dueDate){
         this.id = id;
         this.membershipId = membershipId;
         this.amount = amount;
@@ -47,19 +47,19 @@ public class Fee {
         this.membershipId = membershipId;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getDueDate() {
+    public LocalDate getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
 

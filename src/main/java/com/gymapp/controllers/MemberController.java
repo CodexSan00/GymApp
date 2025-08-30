@@ -2,14 +2,15 @@ package com.gymapp.controllers;
 
 import com.gymapp.models.Member;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
+
 public class MemberController {
     private List<Member> members = new ArrayList<>(); //This will be removed in the future
     private int nextId = -1; //just for simulate auto-increment
 
-    public Member registerMember(String name, String lastName, String phone, String email, Date joinDate){
+    public Member registerMember(String name, String lastName, String phone, String email, LocalDate joinDate){
         Member m = new Member(nextId++, name, lastName, phone, email, joinDate);
         members.add(m);
         return m;
@@ -17,7 +18,7 @@ public class MemberController {
     public List<Member> listAllMembers(){
         return new ArrayList<>(members);
     }
-    public boolean editMember(int id, String name, String lastName, String phone, String email, Date joinDate){
+    public boolean editMember(int id, String name, String lastName, String phone, String email, LocalDate joinDate){
         for(Member m: members){
             if(m.getId() == id){
                 m.setName(name);
