@@ -22,13 +22,15 @@ build/
 *.ipr
 *.iws
 out/
+/test/
+test/
 
-# === Eclipse (por si alguien abre con Eclipse) ===
+# === Eclipse (if someone uses Eclipse) ===
 .project
 .classpath
 .settings/
 bin/
 
-# === Sistema ===
+# === System ===
 .DS_Store
 Thumbs.db
