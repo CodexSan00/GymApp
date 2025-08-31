@@ -11,8 +11,7 @@ public class MembershipController {
     private List<Membership> membershipArray = new ArrayList<>(); //Simulates DAO, this will be removed in the future
 
     public void assignMembership(Member member, String planType, LocalDate startDate){
-        Membership membership = new Membership(nextId++, member.getId(), planType, startDate);
-        membership.setStatus(Membership.Status.ACTIVE);
+        Membership membership = new Membership(nextId++, member.getId(), planType, startDate, Membership.Status.ACTIVE);
         membershipArray.add(membership);
     }
 

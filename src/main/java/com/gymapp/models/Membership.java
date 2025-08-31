@@ -9,14 +9,15 @@ public class Membership {
     private LocalDate startDate;
     private Status status;
 
-    public enum Status {ACTIVE, EXPIRED, CANCELLED};
+    public enum Status {ACTIVE, EXPIRED, CANCELLED}
 
     public Membership(){}
-    public Membership(int id, int memberId, String planType, LocalDate startDate){
+    public Membership(int id, int memberId, String planType, LocalDate startDate, Status status){
         this.id = id;
         this.memberId = memberId;
         this.planType = planType;
         this.startDate = startDate;
+        this.status = status;
     }
 
     public int getId() {
