@@ -41,10 +41,10 @@ public class MembershipController {
         return false;
     }
 
-    public boolean cancelMembership(int membershipId){
+    public boolean deleteMembership(int membershipId){
         for(Membership m: membershipArray){
             if(m.getId() == membershipId){
-                m.setStatus(Membership.Status.CANCELLED);
+                membershipArray.remove(m);
                 return true;
             }
         }
