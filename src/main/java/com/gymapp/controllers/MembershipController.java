@@ -29,6 +29,18 @@ public class MembershipController {
         return null;
     }
 
+    public boolean updateMembership(int membershipId, String planType, LocalDate startDate, Membership.Status status){
+        for(Membership m: membershipArray){
+            if(m.getId() == membershipId){
+                m.setPlanType(planType);
+                m.setStartDate(startDate);
+                m.setStatus(status);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean cancelMembership(int membershipId){
         for(Membership m: membershipArray){
             if(m.getId() == membershipId){
