@@ -18,7 +18,7 @@ public class MemberDAOImpl implements MemberDAO{
     @Override
     public Member create(Member member) {
         String sql = "INSERT INTO members (name, last_name, phone, email, join_date) VALUES (?, ?, ?, ?, ?)";
-        try(PreparedStatement stmt = conn.prepareStatement(sql)){
+        try(PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)){
             stmt.setString(1, member.getName());
             stmt.setString(2, member.getLastName());
             stmt.setString(3, member.getPhone());
