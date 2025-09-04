@@ -116,5 +116,5 @@ public class MembershipDAOImpl implements MembershipDAO {
         LocalDate startDate = rs.getDate("start_date").toLocalDate();
         Membership.Status status = Membership.Status.valueOf(rs.getString("status"));
         return new Membership(id, memberId, planType, startDate, status);
-    }
+    } //ResultSet helper, like Spring rowMapper, but without spring xd
 }
