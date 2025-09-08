@@ -98,10 +98,10 @@ public class MembershipDAOImpl implements MembershipDAO {
     }
 
     @Override
-    public boolean delete(Membership membership) {
+    public boolean delete(int membershipId) {
         String sql = "DELETE FROM memberships WHERE id = ?";
         try(PreparedStatement stmt = conn.prepareStatement(sql)){
-            stmt.setInt(1, membership.getId());
+            stmt.setInt(1, membershipId);
             return stmt.executeUpdate() > 0;
         } catch(SQLException e){
             e.printStackTrace();

@@ -5,8 +5,8 @@ import java.util.List;
 
 public interface MemberDAO {
     Member create(Member member);
-    Member getById(int id);
+    Member getById(int memberId);
     List<Member> getAll();
     boolean update(Member member);
-    boolean delete(int id);
+    boolean delete(int memberId);
 }

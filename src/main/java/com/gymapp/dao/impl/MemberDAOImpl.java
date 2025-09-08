@@ -100,10 +100,10 @@ public class MemberDAOImpl implements MemberDAO{
     }
 
     @Override
-    public boolean delete(int id) {
+    public boolean delete(int memberId) {
         String sql = "DELETE FROM members WHERE id = ?";
         try(PreparedStatement stmt = conn.prepareStatement(sql)){
-            stmt.setInt(1, id);
+            stmt.setInt(1, memberId);
             return stmt.executeUpdate() > 0;
         } catch (SQLException e){
             e.printStackTrace();

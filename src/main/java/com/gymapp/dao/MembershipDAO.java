@@ -9,5 +9,5 @@ public interface MembershipDAO {
     Membership getByMemberId(int memberId);
     List<Membership> getAll();
     boolean update(Membership membership);
-    boolean delete(Membership membership);
+    boolean delete(int membershipId);
 }
