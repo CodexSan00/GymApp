@@ -17,13 +17,13 @@ public class Payment {
     public enum Status { COMPLETED, PENDING, FAILED }
 
     public Payment(){}
-    public Payment(int id, int feeId, double amount, LocalDate paymentDate, Method method){
+    public Payment(int id, int feeId, double amount, LocalDate paymentDate, Method method, Status status){
         this.id = id;
         this.feeId = feeId;
         this.amount = amount;
         this.paymentDate = paymentDate;
         this.paymentMethod = method;
-        this.status = Status.COMPLETED;
+        this.status = status;
     }
 
     public int getId() {
