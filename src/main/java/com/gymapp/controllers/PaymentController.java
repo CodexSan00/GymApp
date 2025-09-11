@@ -14,9 +14,9 @@ public class PaymentController {
         return new ArrayList<>(payments);
     }
 
-    public Payment generatePayment(int feeId, double amount, Payment.Method method) {
+    public Payment generatePayment(int feeId, double amount, Payment.Method method, Payment.Status status) {
         LocalDate paymentDate = LocalDate.now();
-        Payment p = new Payment(id++, feeId, amount, paymentDate, method);
+        Payment p = new Payment(id++, feeId, amount, paymentDate, method, status);
         payments.add(p);
         return p;
     }
@@ -40,7 +40,7 @@ public class PaymentController {
         return null;
     }
 
-    public boolean updatePaymentStatus(int paymentId, Payment.Status status){
+    public boolean updatePaymentStatus(int paymentId, Double amount, LocalDate paymentDate, Payment.Method method,  Payment.Status status){
         for(Payment p: payments){
             if(p.getId() == paymentId){
                 p.setStatus(status);
