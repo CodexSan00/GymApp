@@ -1,43 +1,33 @@
 package com.gymapp.controllers;
 
 import com.gymapp.models.Member;
+import com.gymapp.dao.MemberDAO;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.ArrayList;
 
 public class MemberController {
-    private List<Member> members = new ArrayList<>(); //This will be removed in the future
-    private int nextId = -1; //just for simulate auto-increment
+    private final MemberDAO memberDAO;
 
-    public Member registerMember(String name, String lastName, String phone, String email, LocalDate joinDate){
-        Member m = new Member(nextId++, name, lastName, phone, email, joinDate);
-        members.add(m);
-        return m;
+    public MemberController(MemberDAO memberDAO){
+        this.memberDAO = memberDAO;
     }
+
+    public Member registerMember(String name, String lastName, String phone, String email, LocalDate  joinDate){
+        Member member = new Member(0, name, lastName, phone, email, joinDate);
+        return memberDAO.create(member);
+    }
+
     public List<Member> listAllMembers(){
-        return new ArrayList<>(members);
+        return memberDAO.getAll();
     }
-    public boolean editMember(int id, String name, String lastName, String phone, String email, LocalDate joinDate){
-        for(Member m: members){
-            if(m.getId() == id){
-                m.setName(name);
-                m.setLastName(lastName);
-                m.setPhone(phone);
-                m.setEmail(email);
-                m.setJoinDate(joinDate);
-                return true;
-            }
-        }
-        return false;
+
+    public boolean updateMember(Member updatedMember){
+        return memberDAO.update(updatedMember);
     }
+
     public boolean deleteMember(int memberId){
-        for(int i = 0; i < members.size(); i++){
-            if(members.get(i).getId() == memberId){
-                members.remove(i);
-                return true;
-            }
-        }
-        return false;
+        return memberDAO.delete(memberId);
     }
+
 }
