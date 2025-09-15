@@ -1,54 +1,40 @@
 package com.gymapp.controllers;
 
-import java.util.ArrayList;
-import java.time.LocalDate;
-import java.util.List;
+import com.gymapp.dao.MembershipDAO;
 import com.gymapp.models.Membership;
 import com.gymapp.models.Member;
 
-public class MembershipController {
-    int nextId = -1;
-    private List<Membership> membershipArray = new ArrayList<>(); //Simulates DAO, this will be removed in the future
+import java.time.LocalDate;
+import java.util.List;
 
-    public void assignMembership(Member member, String planType, LocalDate startDate){
-        Membership membership = new Membership(nextId++, member.getId(), planType, startDate, Membership.Status.ACTIVE);
-        membershipArray.add(membership);
+
+public class MembershipController {
+
+    private final MembershipDAO membershipDAO;
+
+    public MembershipController(MembershipDAO membershipDAO){
+        this.membershipDAO = membershipDAO;
+    }
+
+    public void registerMembership(Member member, String planType, LocalDate startDate){
+        Membership membership = new Membership(0, member.getId(), planType, startDate, Membership.Status.ACTIVE);
+        membershipDAO.create(membership);
     }
 
     public List<Membership> listAllMemberships() {
-        return new ArrayList<>(membershipArray);
+        return membershipDAO.getAll();
     }
 
     public Membership getMembershipByMember(int memberId){
-        for(Membership m: membershipArray){
-            if(m.getMemberId() == memberId){
-                return m;
-            }
-        }
-        return null;
+        return membershipDAO.getByMemberId(memberId);
     }
 
-    public boolean updateMembership(int membershipId, String planType, LocalDate startDate, Membership.Status status){
-        for(Membership m: membershipArray){
-            if(m.getId() == membershipId){
-                m.setPlanType(planType);
-                m.setStartDate(startDate);
-                m.setStatus(status);
-                return true;
-            }
-        }
-        return false;
+    public boolean updateMembership(Membership updatedMembership){
+        return membershipDAO.update(updatedMembership);
     }
 
     public boolean deleteMembership(int membershipId){
-        for(Membership m: membershipArray){
-            if(m.getId() == membershipId){
-                membershipArray.remove(m);
-                return true;
-            }
-        }
-        System.out.println("Membership not found.");
-        return false;
+        return membershipDAO.delete(membershipId);
     }
 
 }
