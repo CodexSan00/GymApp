@@ -30,4 +30,7 @@ public class MemberController {
         return memberDAO.delete(memberId);
     }
 
+    public Member getMemberById(int id){
+        return memberDAO.getById(id);
+    }
 }
