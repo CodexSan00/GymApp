@@ -42,5 +42,9 @@ public class FeeController {
     public boolean deleteFee(int feeId) {
         return feeDAO.delete(feeId);
     }
+
+    public List<Fee> listAllFees(){
+        return feeDAO.getAll();
+    }
 }
 
