@@ -17,7 +17,7 @@ public class FeeController {
 
     public Fee generateFee(int membershipId, double amount) {
         LocalDate startDate = LocalDate.now();
-        LocalDate dueDate = LocalDate.now();
+        LocalDate dueDate = LocalDate.now().plusMonths(1);
         Fee fee = new Fee(0, membershipId, amount, Fee.Status.PENDING, startDate, dueDate);
         return feeDAO.create(fee);
     }
