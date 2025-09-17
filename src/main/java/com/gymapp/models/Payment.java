@@ -13,7 +13,7 @@ public class Payment {
     private Method paymentMethod;
     private Status status;
 
-    public enum Method { cash, credit_card, transfer, bank_transfer }
+    public enum Method { CASH, CREDIT_CARD, TRANSFER, BANK_TRANSFER }
     public enum Status { COMPLETED, PENDING, FAILED }
 
     public Payment(){}
