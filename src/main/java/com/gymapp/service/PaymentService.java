@@ -1,16 +1,15 @@
-package com.gymapp.controllers;
+package com.gymapp.service;
 
 import com.gymapp.dao.PaymentDAO;
 import com.gymapp.models.Payment;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.ArrayList;
 
-public class PaymentController {
+public class PaymentService {
     private final PaymentDAO paymentDAO;
 
-    public PaymentController (PaymentDAO paymentDAO){
+    public PaymentService(PaymentDAO paymentDAO){
         this.paymentDAO = paymentDAO;
     }
 

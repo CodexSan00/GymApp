@@ -1,4 +1,4 @@
-package com.gymapp.controllers;
+package com.gymapp.service;
 
 import com.gymapp.models.Member;
 import com.gymapp.dao.MemberDAO;
@@ -6,10 +6,10 @@ import com.gymapp.dao.MemberDAO;
 import java.time.LocalDate;
 import java.util.List;
 
-public class MemberController {
+public class MemberService {
     private final MemberDAO memberDAO;
 
-    public MemberController(MemberDAO memberDAO){
+    public MemberService(MemberDAO memberDAO){
         this.memberDAO = memberDAO;
     }
 

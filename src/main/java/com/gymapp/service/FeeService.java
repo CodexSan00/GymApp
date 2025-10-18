@@ -1,17 +1,16 @@
-package com.gymapp.controllers;
+package com.gymapp.service;
 
 import com.gymapp.dao.FeeDAO;
 import com.gymapp.models.Fee;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
 
 
-public class FeeController {
+public class FeeService {
     private final FeeDAO feeDAO;
 
-    public FeeController(FeeDAO feeDAO) {
+    public FeeService(FeeDAO feeDAO) {
         this.feeDAO = feeDAO;
     }
 
