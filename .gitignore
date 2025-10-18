@@ -33,4 +33,5 @@ bin/
 
 # === System ===
 .DS_Store
+.env
 Thumbs.db
